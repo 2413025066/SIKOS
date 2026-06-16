@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login Sistem Konseling</title>
+
+<!-- ICON -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#dbeafe,#bfdbfe,#93c5fd);
+overflow:hidden;
+position:relative;
+}
+
+/* Background Blur */
+
+body::before{
+content:'';
+position:absolute;
+width:300px;
+height:300px;
+background:rgba(255,255,255,0.4);
+border-radius:50%;
+top:-100px;
+left:-100px;
+filter:blur(40px);
+}
+
+body::after{
+content:'';
+position:absolute;
+width:250px;
+height:250px;
+background:rgba(255,255,255,0.3);
+border-radius:50%;
+bottom:-100px;
+right:-80px;
+filter:blur(40px);
+}
+
+/* LOGIN BOX */
+
+.login-box{
+width:380px;
+padding:35px;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+z-index:10;
+animation:fade 0.7s ease;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* LOGO */
+
+.logo{
+text-align:center;
+margin-bottom:25px;
+}
+
+.logo i{
+font-size:55px;
+color:#2563eb;
+margin-bottom:12px;
+}
+
+.logo h1{
+font-size:34px;
+color:#1e293b;
+margin-bottom:5px;
+font-weight:700;
+}
+
+.logo p{
+font-size:14px;
+color:#64748b;
+}
+
+/* INPUT */
+
+.input-group{
+margin-bottom:18px;
+}
+
+.input-group label{
+display:block;
+margin-bottom:8px;
+font-size:14px;
+font-weight:600;
+color:#334155;
+}
+
+.input-box{
+position:relative;
+}
+
+.input-box i{
+position:absolute;
+left:15px;
+top:50%;
+transform:translateY(-50%);
+color:#64748b;
+}
+
+.input-box input,
+.input-box select{
+width:100%;
+padding:14px 14px 14px 45px;
+border:1px solid #cbd5e1;
+border-radius:14px;
+outline:none;
+font-size:15px;
+background:white;
+transition:0.3s;
+}
+
+.input-box input::placeholder{
+color:#94a3b8;
+}
+
+.input-box input:focus,
+.input-box select:focus{
+border-color:#2563eb;
+box-shadow:0 0 10px rgba(37,99,235,0.2);
+}
+
+/* BUTTON */
+
+.btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+background:#2563eb;
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+margin-top:10px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#1d4ed8;
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(37,99,235,0.2);
+}
+
+/* BOTTOM */
+
+.bottom{
+margin-top:20px;
+text-align:center;
+font-size:14px;
+color:#475569;
+}
+
+.bottom a{
+text-decoration:none;
+color:#2563eb;
+font-weight:600;
+}
+
+.bottom a:hover{
+text-decoration:underline;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:480px){
+
+.login-box{
+width:90%;
+padding:30px;
+}
+
+.logo h1{
+font-size:28px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<!-- LOGO -->
+
+<div class="logo">
+
+<i class="fa-solid fa-comments"></i>
+
+<h1>Login System</h1>
+
+<p>
+Masuk sebagai Siswa atau Admin BK
+</p>
+
+</div>
+
+<!-- FORM -->
+
+<form action="php/login.php" method="POST">
+
+<!-- USERNAME -->
+
+<div class="input-group">
+
+<label>Username</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+name="username"
+placeholder="Masukkan username"
+required>
+
+</div>
+
+</div>
+
+<!-- PASSWORD -->
+
+<div class="input-group">
+
+<label>Password</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-lock"></i>
+
+<input
+type="password"
+name="password"
+placeholder="Masukkan password"
+required>
+
+</div>
+
+</div>
+
+<!-- ROLE -->
+
+<div class="input-group">
+
+<label>Login Sebagai</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-users"></i>
+
+<select name="role" required>
+
+<option value="">Pilih Role</option>
+<option value="admin">Admin BK</option>
+<option value="siswa">Siswa</option>
+
+</select>
+
+</div>
+
+</div>
+
+<!-- BUTTON -->
+
+<button type="submit" class="btn">
+Login
+</button>
+
+</form>
+
+<!-- BOTTOM -->
+
+<div class="bottom">
+
+Belum punya akun?
+<a href="register.html">
+Daftar Sekarang
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
